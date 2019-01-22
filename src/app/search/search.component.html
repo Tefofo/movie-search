@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <mat-toolbar>Movie Search</mat-toolbar>
+    <br>
+    <div class="search-center">
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input type="text" placeholder="Search" aria-label="Number" matInput [formControl]="myControl"
+            [matAutocomplete]="auto" #input>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (onSelectionChange)="searchMovie(option)">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
+  <div class="spacer"></div>
+</div>

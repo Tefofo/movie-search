@@ -1,0 +1,13 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-size: cover;
+  }
+  .movie-card {
+    max-width: 400px;
+  }
+  li {
+    font-family: 'Caveat Brush';font-size: 22px;
+  }
