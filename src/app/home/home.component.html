@@ -2,22 +2,25 @@
   <div class="row" *ngIf="searchResults">
 
     <mat-toolbar>Search Results</mat-toolbar>
-
-    <div class="col-sm-4" *ngFor="let movie of searchResults;">
-      <div>
-        <div class="card mt-3 mb-3">
-          <div class="card-header text-center">
-            {{ movie.release_date | date:'mediumDate':'yyyy' }}
-          </div>
-          <div class="card-body">
-            <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="{{ movie.original_title }}"
-              style="height: 460px">
-            <p class="text-center">{{ movie.original_title }}</p>
-            <a routerLink="/detail/{{ movie.id }}" href="#" class="btn btn-block btn-info">Movie Details</a>
-          </div>
-        </div>
-      </div>
+    <div class="not-found" *ngIf="searchResults.length === 0">
+      <h1>Movie Not found</h1>
     </div>
+
+    <mat-grid-list cols="3" rowHeight="500px" role="list">
+      <mat-grid-tile *ngFor="let movie of searchResults">
+
+        <mat-card class="home-card">
+          <div mat-card-avatar class="home-header-image"></div>
+          <img mat-card-image src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" alt="{{movie.original_title}}">
+        </mat-card>
+
+        <mat-grid-tile-footer>
+          <p>
+            <a routerLink="/detail/{{ movie.id }}" href="#" class="btn btn-block btn-info">Movie Details</a>
+          </p>
+        </mat-grid-tile-footer>
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
   <div class="row" [hidden]="searchResults">
 
@@ -26,8 +29,8 @@
     <mat-grid-list cols="3" rowHeight="500px" role="list">
       <mat-grid-tile *ngFor="let nowPlaying of nowPlayingMovies">
 
-        <mat-card class="example-card">
-          <div mat-card-avatar class="example-header-image"></div>
+        <mat-card class="home-card">
+          <div mat-card-avatar class="home-header-image"></div>
           <img mat-card-image src="https://image.tmdb.org/t/p/original/{{ nowPlaying.poster_path }}" alt="{{nowPlaying.original_title}}">
         </mat-card>
         <mat-grid-tile-footer>
@@ -38,5 +41,4 @@
       </mat-grid-tile>
     </mat-grid-list>
   </div>
-
 </div>

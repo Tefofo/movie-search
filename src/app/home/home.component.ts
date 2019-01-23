@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
     });
     this.movieService.searchResults.subscribe(res => {
       this.searchResults = res;
-      console.log('Home component results ' + JSON.stringify(this.searchResults));
     });
   }
 

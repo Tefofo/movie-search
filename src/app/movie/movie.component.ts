@@ -18,7 +18,6 @@ export class MovieComponent implements OnInit {
       const id = params['movieID'];
       this.movieService.getMovieDetail(id).subscribe(res => {
         this.movie = res;
-        console.log(this.movie);
       });
     });
   }

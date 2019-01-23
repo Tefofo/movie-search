@@ -1,7 +1,20 @@
-.example-card {
+.home-card {
     max-width: 400px;
   }
   
-  .example-header-image {
+  .home-header-image {
     background-size: cover;
+  }
+  .not-found {
+    background-image: url("../../images/404-error-purple03.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width:100%;
+    margin-top: 65px;
+    height:280px;
+  }
+  h1 {
+    width: 300px;
+    margin: 0 auto;
   }

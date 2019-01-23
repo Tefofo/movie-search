@@ -11,7 +11,6 @@ export class AppComponent {
   constructor(private movieService: MovieService) {}
 
   applySearch(event: any) {
-    console.log('this is an event ' + JSON.stringify(event));
     this.movieService.searchResults.emit(event);
   }
 }
